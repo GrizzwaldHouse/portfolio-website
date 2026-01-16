@@ -1,5 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import GraduationCountdown from '@/components/GraduationCountdown';
+import AvailabilityStatus from '@/components/AvailabilityStatus';
+import ResumeDownload from '@/components/ResumeDownload';
 
 export default function Home() {
   return (
@@ -30,11 +33,17 @@ export default function Home() {
             <p className="text-2xl md:text-3xl text-gray-300 mb-4">
               Tool Programmer | Game Development QA | Graphics Engineer
             </p>
-            <p className="text-xl text-[#FFCC00] mb-8 font-semibold">
+            <p className="text-xl text-[#FFCC00] mb-6 font-semibold">
               US Navy Veteran building next-generation game development tools and AI-powered workflows
             </p>
 
+            {/* Status Badges */}
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8">
+              <AvailabilityStatus />
+              <GraduationCountdown />
+            </div>
+
+            <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
               <Link
                 href="/projects"
                 className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-blue-500/50"
@@ -120,6 +129,11 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Resume Download Section */}
+      <section className="container mx-auto px-6 py-16">
+        <ResumeDownload />
       </section>
     </div>
   );
