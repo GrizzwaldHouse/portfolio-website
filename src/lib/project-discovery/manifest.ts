@@ -191,8 +191,7 @@ export function resolveProject(
 
   // Determine featured status
   const featured = mergedConfig.featured ??
-                   visibility === 'featured' ??
-                   repo.topics.includes('portfolio-featured');
+                   (visibility === 'featured' || repo.topics.includes('portfolio-featured'));
 
   // Build the project
   const project: PortfolioProject = {
