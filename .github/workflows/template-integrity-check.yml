@@ -1,0 +1,155 @@
+# Template Integrity Check
+# Ensures the portfolio can be reused as a template by validating required structure
+
+name: Template Integrity Check
+
+on:
+  push:
+    branches: [main, 'claude/**']
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'template.config.ts'
+      - 'package.json'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  template-check:
+    name: Validate Template Structure
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check Required Files Exist
+        run: |
+          echo "## Template Structure Validation" >> $GITHUB_STEP_SUMMARY
+
+          REQUIRED_FILES=(
+            "template.config.ts"
+            "src/app/page.tsx"
+            "src/app/about/page.tsx"
+            "src/app/projects/page.tsx"
+            "src/app/contact/page.tsx"
+            "src/app/layout.tsx"
+            "src/data/projects.ts"
+            "public/images"
+            "package.json"
+            "next.config.js"
+            "tailwind.config.js"
+          )
+
+          MISSING=()
+          for file in "${REQUIRED_FILES[@]}"; do
+            if [ ! -e "$file" ]; then
+              MISSING+=("$file")
+              echo "❌ Missing: $file" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "✅ Found: $file" >> $GITHUB_STEP_SUMMARY
+            fi
+          done
+
+          if [ ${#MISSING[@]} -gt 0 ]; then
+            echo ""
+            echo "### ⚠️ Missing Required Files" >> $GITHUB_STEP_SUMMARY
+            echo "The following files are required for template integrity:" >> $GITHUB_STEP_SUMMARY
+            for file in "${MISSING[@]}"; do
+              echo "- \`$file\`" >> $GITHUB_STEP_SUMMARY
+            done
+            exit 1
+          fi
+
+      - name: Validate Template Config
+        run: |
+          node --eval "
+            const fs = require('fs');
+
+            if (!fs.existsSync('./template.config.ts')) {
+              console.log('template.config.ts not found - will be created');
+              process.exit(0);
+            }
+
+            const content = fs.readFileSync('./template.config.ts', 'utf8');
+
+            const requiredExports = [
+              'siteConfig',
+              'brandConfig',
+              'featureFlags'
+            ];
+
+            const missing = requiredExports.filter(exp =>
+              !content.includes(exp)
+            );
+
+            if (missing.length > 0) {
+              console.error('Template config missing exports:', missing);
+              process.exit(1);
+            }
+
+            console.log('✓ Template config structure valid');
+          "
+
+      - name: Check for Hardcoded Personal Data
+        run: |
+          echo "### Personal Data Check" >> $GITHUB_STEP_SUMMARY
+
+          # Files that should use template config, not hardcoded values
+          TEMPLATE_FILES=(
+            "src/app/page.tsx"
+            "src/app/about/page.tsx"
+            "src/app/layout.tsx"
+            "src/metadata.ts"
+          )
+
+          WARNINGS=()
+
+          for file in "${TEMPLATE_FILES[@]}"; do
+            if [ -f "$file" ]; then
+              # Check for common hardcoded patterns that should be configurable
+              if grep -q "marcusdaley\|Marcus Daley\|GrizzwaldHouse" "$file" 2>/dev/null; then
+                WARNINGS+=("$file contains hardcoded personal data (expected in current phase)")
+              fi
+            fi
+          done
+
+          if [ ${#WARNINGS[@]} -gt 0 ]; then
+            echo "⚠️ **Note:** The following files contain personal data that will be configurable via template.config.ts:" >> $GITHUB_STEP_SUMMARY
+            for warning in "${WARNINGS[@]}"; do
+              echo "- $warning" >> $GITHUB_STEP_SUMMARY
+            done
+          else
+            echo "✅ No hardcoded personal data detected (or properly abstracted)" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Validate Component Exports
+        run: |
+          # Check that key components are properly exported
+          node --eval "
+            const fs = require('fs');
+            const path = require('path');
+
+            const componentDirs = [
+              'src/components/demos',
+            ];
+
+            componentDirs.forEach(dir => {
+              const indexPath = path.join(dir, 'index.ts');
+              if (fs.existsSync(indexPath)) {
+                console.log('✓ ' + dir + '/index.ts exists');
+              } else {
+                console.log('⚠ ' + dir + '/index.ts missing (components may not be properly exported)');
+              }
+            });
+          "
+
+      - name: Summary
+        run: |
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Result" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Template integrity check passed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "This portfolio can be used as a template. See \`template.config.ts\` for customization options." >> $GITHUB_STEP_SUMMARY
