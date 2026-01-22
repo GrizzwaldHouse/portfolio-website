@@ -1,0 +1,21 @@
+# Cloudflare Pages Configuration
+# This file configures deployment to Cloudflare Pages (commercial-safe free tier)
+
+name = "portfolio-website"
+compatibility_date = "2024-01-01"
+
+# Pages-specific settings
+[site]
+bucket = "./out"
+
+# Environment variables (non-sensitive)
+[vars]
+NEXT_PUBLIC_SITE_URL = "https://portfolio.pages.dev"
+
+# Production environment
+[env.production]
+vars = { NEXT_PUBLIC_SITE_URL = "https://portfolio.pages.dev" }
+
+# Preview environment (for PRs)
+[env.preview]
+vars = { NEXT_PUBLIC_SITE_URL = "https://preview.portfolio.pages.dev" }

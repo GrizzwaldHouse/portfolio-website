@@ -1,0 +1,109 @@
+# Runtime Build Health Check
+# Validates the portfolio builds successfully and runnable projects have required assets
+
+name: Runtime Build Check
+
+on:
+  push:
+    branches: [main, 'claude/**']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-check:
+    name: Build & Validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Type Check
+        run: npx tsc --noEmit
+
+      - name: Lint
+        run: npm run lint
+        continue-on-error: true
+
+      - name: Build
+        run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+
+      - name: Verify Build Output
+        run: |
+          echo "## Build Output Verification" >> $GITHUB_STEP_SUMMARY
+
+          # Check that out directory exists (static export)
+          if [ -d "out" ]; then
+            echo "✅ Static export directory exists" >> $GITHUB_STEP_SUMMARY
+
+            # Count pages
+            PAGE_COUNT=$(find out -name "*.html" | wc -l)
+            echo "📄 Generated $PAGE_COUNT HTML pages" >> $GITHUB_STEP_SUMMARY
+
+            # List main pages
+            echo "### Pages Generated" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+            find out -name "*.html" -type f | head -20 >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Static export directory not found" >> $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
+
+      - name: Validate Required Pages
+        run: |
+          REQUIRED_PAGES=(
+            "out/index.html"
+            "out/projects/index.html"
+            "out/about/index.html"
+            "out/contact/index.html"
+          )
+
+          MISSING=()
+          for page in "${REQUIRED_PAGES[@]}"; do
+            if [ ! -f "$page" ]; then
+              MISSING+=("$page")
+            fi
+          done
+
+          if [ ${#MISSING[@]} -gt 0 ]; then
+            echo "Missing required pages:"
+            printf '%s\n' "${MISSING[@]}"
+            exit 1
+          fi
+
+          echo "✅ All required pages present"
+
+      - name: Check Bundle Sizes
+        run: |
+          echo "### Bundle Analysis" >> $GITHUB_STEP_SUMMARY
+
+          # Check JS bundle sizes
+          if [ -d "out/_next/static" ]; then
+            JS_SIZE=$(du -sh out/_next/static/chunks 2>/dev/null | cut -f1 || echo "N/A")
+            echo "📦 JS chunks: $JS_SIZE" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          # Total build size
+          TOTAL_SIZE=$(du -sh out 2>/dev/null | cut -f1 || echo "N/A")
+          echo "📦 Total build size: $TOTAL_SIZE" >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: out/
+          retention-days: 7
