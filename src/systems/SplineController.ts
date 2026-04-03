@@ -19,6 +19,7 @@ export class SplineController {
 
   private splineApp: unknown = null;
   private subscriptions: Array<{ unsubscribe: () => void }> = [];
+  private animationTimers: ReturnType<typeof setTimeout>[] = [];
 
   initialize(): void {
     this.subscriptions.push(
@@ -44,6 +45,8 @@ export class SplineController {
   destroy(): void {
     this.subscriptions.forEach((sub) => sub.unsubscribe());
     this.subscriptions = [];
+    this.animationTimers.forEach(clearTimeout);
+    this.animationTimers = [];
   }
 
   setSplineApp(app: unknown): void {
@@ -69,11 +72,12 @@ export class SplineController {
     }
 
     // Return to idle after animation completes
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       if (this.state.currentAnimation === animation) {
         this.state.currentAnimation = SplineAnimation.IDLE_LOOP;
       }
     }, 2000);
+    this.animationTimers.push(timer);
   }
 
   private updateMoodAnimation(mood: PetMood): void {

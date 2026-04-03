@@ -134,7 +134,7 @@ export default function ChatTerminal() {
                 </span>
               )}
               <span className={TYPE_COLORS[msg.type] ?? 'text-gray-300'}>
-                {msg.type === 'chat' && msg.sender !== 'SERVER' ? msg.content : msg.content}
+                {msg.content}
               </span>
             </div>
           ))}
