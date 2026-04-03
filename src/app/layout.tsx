@@ -2,12 +2,14 @@
 // Developer: Marcus Daley
 // Date: 2026-04-03
 // Purpose: Root layout with Command Center themed navigation and footer.
-//          Renders TamagotchiWidget globally as a floating interactive element.
+//          Stays as a server component for SEO. Interactive nav and pet widget
+//          are extracted as client components.
 
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { siteMetadata, jsonLd } from '@/metadata';
+import NavBar from '@/components/NavBar';
 import TamagotchiWidget from '@/components/Tamagotchi/TamagotchiWidget';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -32,80 +34,8 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
       <body className={inter.className}>
-        {/* Command Center Navigation */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-xl border-b border-cyan-500/20">
-          <div className="container mx-auto px-6 py-3">
-            <div className="flex items-center justify-between">
-              {/* Logo */}
-              <a href="/" className="flex items-center gap-3 group">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white font-bold text-sm group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
-                  MD
-                </div>
-                <span className="text-lg font-bold text-white tracking-wide">
-                  MARCUS<span className="text-cyan-400">.DALEY</span>
-                </span>
-              </a>
-
-              {/* Nav Links */}
-              <div className="hidden md:flex items-center gap-1">
-                {[
-                  { href: '/', label: 'Home' },
-                  { href: '/projects', label: 'Projects' },
-                  { href: '/blog', label: 'Dev Log' },
-                  { href: '/about', label: 'About' },
-                  { href: '/contact', label: 'Contact' },
-                ].map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 rounded-lg transition-all duration-200 font-medium tracking-wide"
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-
-              {/* Status Indicator */}
-              <div className="hidden md:flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-xs text-green-400 font-mono">SYSTEM ONLINE</span>
-              </div>
-
-              {/* Mobile Menu Button */}
-              <button
-                className="md:hidden text-gray-300 hover:text-cyan-400 transition-colors p-2"
-                aria-label="Toggle navigation"
-                onClick={() => {
-                  const menu = document.getElementById('mobile-nav');
-                  menu?.classList.toggle('hidden');
-                }}
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              </button>
-            </div>
-
-            {/* Mobile Menu */}
-            <div id="mobile-nav" className="hidden md:hidden mt-3 pb-3 border-t border-slate-700/50 pt-3">
-              {[
-                { href: '/', label: 'Home' },
-                { href: '/projects', label: 'Projects' },
-                { href: '/blog', label: 'Dev Log' },
-                { href: '/about', label: 'About' },
-                { href: '/contact', label: 'Contact' },
-              ].map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="block px-4 py-2 text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 rounded-lg transition-all text-sm"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        </nav>
+        {/* Command Center Navigation (client component for active link state) */}
+        <NavBar />
 
         {/* Spacer for fixed nav */}
         <div className="h-14" />
@@ -129,7 +59,7 @@ export default function RootLayout({
                   <h3 className="text-white font-bold tracking-wide">MARCUS.DALEY</h3>
                 </div>
                 <p className="text-gray-500 text-sm leading-relaxed">
-                  Tool Programmer & Game Developer. Navy veteran building event-driven systems
+                  Tool Programmer &amp; Game Developer. Navy veteran building event-driven systems
                   and AI-powered game development tools.
                 </p>
               </div>
