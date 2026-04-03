@@ -6,13 +6,10 @@
 //          are extracted as client components.
 
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
 import { siteMetadata, jsonLd } from '@/metadata';
 import NavBar from '@/components/NavBar';
 import TamagotchiWidget from '@/components/Tamagotchi/TamagotchiWidget';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = siteMetadata;
 
@@ -33,7 +30,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
-      <body className={inter.className}>
+      <body className="font-sans">
         {/* Command Center Navigation (client component for active link state) */}
         <NavBar />
 
