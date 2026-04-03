@@ -20,7 +20,8 @@ app = FastAPI(title="Portfolio Learning Service", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://*.vercel.app"],
+    allow_origins=["http://localhost:3000"],
+    allow_origin_regex=r"https://portfolio-website.*\.vercel\.app",
     allow_methods=["POST"],
     allow_headers=["Content-Type"],
 )

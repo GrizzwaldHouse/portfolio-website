@@ -11,6 +11,7 @@ class EventBusImpl {
   private handlers: Map<EventType, Set<EventHandler>> = new Map();
   private eventLog: GameEvent[] = [];
   private maxLogSize = 100;
+  private isEmittingError = false;
 
   emit<T = unknown>(type: EventType, payload: T, source: string): void {
     const event: GameEvent<T> = {
@@ -29,7 +30,11 @@ class EventBusImpl {
           handler(event as GameEvent);
         } catch (error) {
           console.error(`[EventBus] Handler error for ${type}:`, error);
-          this.emit(EventType.SYSTEM_ERROR, { originalEvent: type, error }, 'EventBus');
+          if (!this.isEmittingError) {
+            this.isEmittingError = true;
+            this.emit(EventType.SYSTEM_ERROR, { originalEvent: type, error }, 'EventBus');
+            this.isEmittingError = false;
+          }
         }
       });
     }

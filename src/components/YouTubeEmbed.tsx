@@ -53,10 +53,11 @@ export default function YouTubeEmbed({
   return (
     <div className={`relative aspect-video rounded-lg overflow-hidden ${className}`}>
       <iframe
-        src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+        src={`https://www.youtube.com/embed/${encodeURIComponent(videoId)}?autoplay=1&rel=0`}
         title={title}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
+        sandbox="allow-scripts allow-same-origin allow-presentation"
         className="absolute inset-0 w-full h-full"
       />
     </div>
