@@ -16,6 +16,7 @@ const NAV_LINKS = [
   { href: '/blog', label: 'Dev Log' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
+  { href: '/chat', label: 'Chat Demo' },
 ] as const;
 
 export default function NavBar() {
