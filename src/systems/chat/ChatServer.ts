@@ -11,6 +11,7 @@ import { EventType } from '@/types/events';
 
 const MAX_LOGIN_ATTEMPTS = 3;
 const MAX_MESSAGE_LOG = 50;
+const MAX_MESSAGE_LENGTH = 500;
 const COMMAND_CHAR = '~';
 
 interface UserAccount {
@@ -100,6 +101,16 @@ export class ChatServer {
   processInput(input: string): void {
     const trimmed = input.trim();
     if (!trimmed) return;
+
+    if (trimmed.length > MAX_MESSAGE_LENGTH) {
+      this.emit({
+        timestamp: this.now(),
+        sender: 'SERVER',
+        content: `Message exceeds maximum length (${MAX_MESSAGE_LENGTH} chars).`,
+        type: 'error',
+      });
+      return;
+    }
 
     if (trimmed.startsWith(COMMAND_CHAR)) {
       this.processCommand(trimmed);
@@ -202,7 +213,6 @@ export class ChatServer {
       return;
     }
 
-    const masked = this.maskPassword(password);
     this.registeredUsers.set(username.toLowerCase(), {
       username,
       password,
@@ -216,7 +226,7 @@ export class ChatServer {
     this.emit({
       timestamp: this.now(),
       sender: 'SERVER',
-      content: `User '${username} (Password: ${masked})' registered successfully!`,
+      content: `User '${username}' registered successfully!`,
       type: 'system',
     });
     this.broadcastSystem(`New user registered: ${username}`);
@@ -506,9 +516,9 @@ export class ChatServer {
     const bots = [
       { username: 'guest', password: 'guest123' },
       { username: 'admin', password: 'admin123' },
-      { username: 'NavyVet_Mike', password: 'anchor22' },
-      { username: 'PixelPusher', password: 'render3d' },
-      { username: 'CodeWizard', password: 'spell42' },
+      { username: 'NavyVet_Mike', password: crypto.randomUUID() },
+      { username: 'PixelPusher', password: crypto.randomUUID() },
+      { username: 'CodeWizard', password: crypto.randomUUID() },
     ];
 
     bots.forEach((bot) => {
