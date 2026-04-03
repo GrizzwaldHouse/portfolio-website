@@ -7,7 +7,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { DISPLAY_CONFIG } from '@/types/project';
 
 const STORAGE_KEY = 'portfolio_project_display_count';
@@ -23,23 +23,44 @@ export default function ProjectDisplayControl({
 }: ProjectDisplayControlProps) {
   const [selectedCount, setSelectedCount] = useState(DISPLAY_CONFIG.defaultCount);
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Load saved preference
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      const count = parseInt(saved, 10);
-      if (!isNaN(count)) {
-        setSelectedCount(count);
-        onCountChange(count);
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const count = parseInt(saved, 10);
+        if (!isNaN(count)) {
+          setSelectedCount(count);
+          onCountChange(count);
+        }
       }
+    } catch {
+      // localStorage unavailable (private browsing, etc.)
     }
   }, [onCountChange]);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isOpen]);
 
   const handleSelect = (count: number) => {
     setSelectedCount(count);
     onCountChange(count);
-    localStorage.setItem(STORAGE_KEY, count.toString());
+    try {
+      localStorage.setItem(STORAGE_KEY, count.toString());
+    } catch {
+      // localStorage unavailable
+    }
     setIsOpen(false);
   };
 
@@ -49,7 +70,7 @@ export default function ProjectDisplayControl({
   }
 
   return (
-    <div className="relative inline-flex items-center gap-2 text-sm">
+    <div ref={dropdownRef} className="relative inline-flex items-center gap-2 text-sm">
       <span className="text-gray-400 font-mono text-xs">SHOWING</span>
       <button
         onClick={() => setIsOpen(!isOpen)}

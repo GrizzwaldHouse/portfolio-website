@@ -101,10 +101,18 @@ export class PetEngine {
       const newXp = this.state.xp + result.xpGained;
       const levelUp = newXp >= XP_PER_LEVEL;
 
+      const boosted: Record<string, number> = {};
+      for (const [key, val] of Object.entries(result.statBoosts)) {
+        const current = (this.state as unknown as Record<string, unknown>)[key];
+        if (typeof current === 'number') {
+          boosted[key] = Math.min(100, Math.max(0, current + (val as number)));
+        }
+      }
+
       this.updateState({
         xp: levelUp ? newXp - XP_PER_LEVEL : newXp,
         level: levelUp ? this.state.level + 1 : this.state.level,
-        ...result.statBoosts,
+        ...boosted,
       });
 
       if (levelUp) {
