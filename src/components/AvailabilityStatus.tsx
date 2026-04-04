@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import type { ReactElement } from 'react';
 
-type AvailabilityStatus = 'graduating-soon' | 'available' | 'employed';
+type AvailabilityStatus = 'available' | 'employed';
 
 interface StatusConfig {
   text: string;
@@ -15,34 +15,9 @@ interface StatusConfig {
 }
 
 export default function AvailabilityStatus() {
-  const [status, setStatus] = useState<AvailabilityStatus>('graduating-soon');
-
-  useEffect(() => {
-    const graduationDate = new Date('2026-02-06T00:00:00');
-    const now = new Date();
-
-    if (now >= graduationDate) {
-      setStatus('available'); // After graduation, show as available
-    } else {
-      setStatus('graduating-soon'); // Before graduation
-    }
-
-    // Note: Change to 'employed' manually when you get a job
-  }, []);
+  const [status] = useState<AvailabilityStatus>('available');
 
   const statusConfigs: Record<AvailabilityStatus, StatusConfig> = {
-    'graduating-soon': {
-      text: 'Graduating February 2026',
-      subtext: 'Available for remote work',
-      color: 'text-[#FFCC00]',
-      bgColor: 'bg-[#FFCC00]/20',
-      borderColor: 'border-[#FFCC00]/30',
-      icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
-        </svg>
-      )
-    },
     'available': {
       text: 'Available for Hire',
       subtext: 'Open to remote opportunities',
