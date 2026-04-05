@@ -29,7 +29,7 @@ export default function ProjectVideoGallery({ videos, projectTitle }: ProjectVid
   return (
     <div className="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
       <h4 className="text-lg font-bold text-[#FFCC00] mb-4 flex items-center gap-2">
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <svg className="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
           <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
         </svg>
         Development Videos

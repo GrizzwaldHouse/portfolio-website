@@ -29,7 +29,9 @@ export default function YouTubeEmbed({
       <div
         className={`relative aspect-video bg-slate-800 rounded-lg overflow-hidden cursor-pointer group ${className}`}
         onClick={() => setIsLoaded(true)}
+        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setIsLoaded(true); } }}
         role="button"
+        tabIndex={0}
         aria-label={`Play video: ${title}`}
       >
         <Image
@@ -42,7 +44,7 @@ export default function YouTubeEmbed({
         />
         <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
           <div className="w-16 h-16 md:w-20 md:h-20 bg-red-600 rounded-full flex items-center justify-center group-hover:bg-red-500 group-hover:scale-110 transition-all shadow-2xl">
-            <svg className="w-8 h-8 md:w-10 md:h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-8 h-8 md:w-10 md:h-10 text-white ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z"/>
             </svg>
           </div>

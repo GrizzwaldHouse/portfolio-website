@@ -16,7 +16,7 @@ export default function PortfolioArchitecturePost() {
           href="/blog"
           className="inline-flex items-center gap-2 text-gray-400 hover:text-[#FFCC00] transition-colors mb-10"
         >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
           Back to Blog
@@ -28,7 +28,7 @@ export default function PortfolioArchitecturePost() {
             Portfolio Architecture: Observer Pattern and Three-Layer Fallback
           </h1>
           <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400">
-            <time>March 2026</time>
+            <time dateTime="2026-03">March 2026</time>
             <span className="w-1 h-1 rounded-full bg-gray-600" />
             <span>10 min read</span>
           </div>
@@ -272,7 +272,7 @@ export function enrichProjectWithGitHub(
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#FFCC00] hover:bg-[#D50032] text-slate-900 hover:text-white font-semibold rounded-lg transition-all duration-300"
             >
               View on GitHub
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
             </a>

@@ -13,11 +13,11 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative bg-gradient-to-br from-slate-900 via-slate-900 to-slate-900 py-20 px-6 overflow-hidden"
+      className="relative bg-gradient-to-br from-[var(--color-bg-primary)] via-[var(--color-bg-primary)] to-[var(--color-bg-primary)] py-20 px-6 overflow-hidden"
       aria-label="Introduction"
     >
       {/* Animated gradient overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(255,204,0,0.08),_transparent_50%),_radial-gradient(ellipse_at_bottom_left,_rgba(213,0,50,0.06),_transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_color-mix(in_srgb,var(--color-primary)_8%,transparent),_transparent_50%),_radial-gradient(ellipse_at_bottom_left,_color-mix(in_srgb,var(--color-secondary)_6%,transparent),_transparent_50%)]" />
 
       <div className="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         {/* Copy */}
@@ -27,16 +27,16 @@ export default function HeroSection() {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-            <span className="text-white">Six Impossible Things</span>{' '}
+            <span className="text-[var(--color-text-primary)]">Six Impossible Things</span>{' '}
             <span
-              className="font-mono bg-gradient-to-r from-[#FFCC00] to-[#D50032] bg-clip-text text-transparent neon-text"
+              className="font-mono bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] bg-clip-text text-transparent neon-text"
               style={{ fontSize: '0.65em', lineHeight: 1.6 }}
             >
               Before Breakfast
             </span>
           </h1>
 
-          <p className="mt-6 text-lg text-gray-300 max-w-lg">
+          <p className="mt-6 text-lg text-[var(--color-text-secondary)] max-w-lg">
             Game developer and U.S. Navy veteran building AI-driven game systems,
             custom engines, and automation tools. Full Sail University Graduate &mdash;
             Game Development.
@@ -46,7 +46,7 @@ export default function HeroSection() {
             {['C++', 'Unreal Engine 5', 'Unity', 'Python', 'Clean Architecture'].map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1 text-xs font-mono bg-slate-800/90 text-[#FFCC00]/80 rounded border border-[#FFCC00]/20 hover:border-[#FFCC00]/50 hover:text-[#FFCC00] transition-all duration-300 uppercase tracking-wider"
+                className="px-3 py-1 text-xs font-mono bg-[var(--color-bg-secondary)]/90 text-[var(--color-primary)]/80 rounded border border-[var(--color-primary)]/20 hover:border-[var(--color-primary)]/50 hover:text-[var(--color-primary)] transition-all duration-300 uppercase tracking-wider"
               >
                 {tag}
               </span>
@@ -56,13 +56,13 @@ export default function HeroSection() {
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
               href="/projects"
-              className="px-6 py-3 bg-gradient-to-r from-[#FFCC00] to-[#D50032] text-slate-900 font-semibold rounded-xl shadow-lg hover:shadow-[#FFCC00]/20 hover:scale-[1.02] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#FFCC00] focus:ring-offset-2 focus:ring-offset-slate-900"
+              className="px-6 py-3 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] text-[var(--color-bg-primary)] font-semibold rounded-xl shadow-lg hover:shadow-[var(--color-primary)]/20 hover:scale-[1.02] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2 focus:ring-offset-[var(--color-bg-primary)]"
             >
               View Projects
             </Link>
             <button
               onClick={() => setHireOpen(true)}
-              className="px-6 py-3 border border-[#FFCC00]/40 text-[#FFCC00] rounded-xl hover:bg-[#FFCC00]/10 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#FFCC00] focus:ring-offset-2 focus:ring-offset-slate-900"
+              className="px-6 py-3 border border-[var(--color-primary)]/40 text-[var(--color-primary)] rounded-xl hover:bg-[var(--color-primary)]/10 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2 focus:ring-offset-[var(--color-bg-primary)]"
             >
               Hire Marcus
             </button>
@@ -70,7 +70,7 @@ export default function HeroSection() {
               href={siteConfig.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 border border-slate-600 text-gray-300 rounded-xl hover:border-slate-500 hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#FFCC00] focus:ring-offset-2 focus:ring-offset-slate-900"
+              className="px-6 py-3 border border-[var(--color-border)] text-[var(--color-text-secondary)] rounded-xl hover:border-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2 focus:ring-offset-[var(--color-bg-primary)]"
               aria-label="LinkedIn Profile (opens in new tab)"
             >
               LinkedIn
@@ -90,7 +90,7 @@ export default function HeroSection() {
             transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut' }}
             className="relative w-full h-[400px] md:h-[500px]"
           >
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FFCC00]/20 to-[#D50032]/20 blur-3xl" />
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[var(--color-primary)]/20 to-[var(--color-secondary)]/20 blur-3xl" />
             <Image
               src="/images/profile.jpg"
               alt="Marcus Daley — Game Developer and U.S. Navy Veteran"
