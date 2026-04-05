@@ -1,5 +1,25 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Blog & Project Updates',
+  description:
+    'Development insights, project deep dives, and lessons learned from game development, graphics engineering, and AI-assisted workflows.',
+};
+
+interface BlogPost {
+  id: number;
+  title: string;
+  date: string;
+  excerpt: string;
+  tags: string[];
+  type: 'external' | 'internal';
+  link?: string;
+  slug?: string;
+}
+
 export default function Blog() {
-  const blogPosts = [
+  const blogPosts: BlogPost[] = [
     {
       id: 1,
       title: "Island Escape - Team Voxel Survival Game",
@@ -7,28 +27,39 @@ export default function Blog() {
       excerpt: "Our team project featuring procedural terrain generation, AI combat systems, and comprehensive tool programming. Built with Unreal Engine 5.5.",
       link: "https://theendisnear469.itch.io/island-escape",
       tags: ["Unreal Engine", "C++", "Tool Programming", "Team Project"],
-      type: "external"
+      type: "external",
     },
     {
       id: 2,
-      title: "Building MCP Integration for Unreal Engine",
-      date: "December 2025",
-      excerpt: "Developing a custom Model Context Protocol server that enables AI-assisted game development workflows directly in Unreal Engine.",
-      tags: ["Python", "FastMCP", "Unreal Engine", "AI Tools"],
-      type: "internal"
+      title: "Building a Vulkan Renderer from Scratch",
+      date: "November 2025",
+      excerpt: "A deep dive into building a custom PBR rendering engine with the Vulkan API — from pipeline architecture and shader compilation to a 35% performance optimization.",
+      slug: "vulkan-renderer",
+      tags: ["C++", "Vulkan API", "GLSL", "PBR"],
+      type: "internal",
     },
     {
       id: 3,
-      title: "From Submarines to Game Development",
-      date: "November 2025",
-      excerpt: "My journey transitioning from 9 years as a Navy submarine mechanic to pursuing a career in game development and tool programming.",
-      tags: ["Career", "Navy Veteran", "Full Sail University"],
-      type: "internal"
-    }
+      title: "MCP Command Panel: Bridging AI to Unreal Editor",
+      date: "January 2026",
+      excerpt: "How I built a C++ plugin and Python backend that lets AI models send commands directly to the Unreal Editor through the Model Context Protocol.",
+      slug: "mcp-command-panel",
+      tags: ["Python", "FastAPI", "Unreal Engine", "AI Tools"],
+      type: "internal",
+    },
+    {
+      id: 4,
+      title: "Portfolio Architecture: Observer Pattern and Three-Layer Fallback",
+      date: "March 2026",
+      excerpt: "A technical walkthrough of the architecture decisions behind this portfolio — the Observer pattern with re-entrancy guard, three-layer error fallback, and ISR-powered GitHub enrichment.",
+      slug: "portfolio-architecture",
+      tags: ["Next.js 15", "TypeScript", "Observer Pattern", "Architecture"],
+      type: "internal",
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-900 to-slate-900">
       <div className="container mx-auto px-6 py-20">
         {/* Header */}
         <div className="text-center mb-16">
@@ -43,8 +74,8 @@ export default function Blog() {
         {/* Blog Posts Grid */}
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {blogPosts.map((post) => (
-            <article 
-              key={post.id} 
+            <article
+              key={post.id}
               className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700 hover:border-[#FFCC00] transition-all duration-300"
             >
               {/* Post Header */}
@@ -53,17 +84,17 @@ export default function Blog() {
                   {post.title}
                 </h2>
                 {post.type === "external" && (
-                  <svg 
-                    className="w-5 h-5 text-[#FFCC00] flex-shrink-0 ml-2 mt-1" 
-                    fill="none" 
-                    stroke="currentColor" 
+                  <svg
+                    className="w-5 h-5 text-[#FFCC00] flex-shrink-0 ml-2 mt-1"
+                    fill="none"
+                    stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth={2} 
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                     />
                   </svg>
                 )}
@@ -80,9 +111,9 @@ export default function Blog() {
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mb-6">
                 {post.tags.map((tag, index) => (
-                  <span 
+                  <span
                     key={index}
-                    className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm"
+                    className="px-3 py-1 bg-slate-700/50 text-gray-300 rounded-full text-sm border border-slate-600"
                   >
                     {tag}
                   </span>
@@ -91,35 +122,48 @@ export default function Blog() {
 
               {/* Read More Link */}
               {post.type === "external" && post.link ? (
-                <a 
+                <a
                   href={post.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-[#FFCC00] hover:bg-[#D50032] text-slate-900 hover:text-white font-semibold rounded-lg transition-all duration-300"
                 >
                   View on itch.io
-                  <svg 
-                    className="w-4 h-4" 
-                    fill="none" 
-                    stroke="currentColor" 
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth={2} 
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                     />
                   </svg>
                 </a>
-              ) : (
-                <button 
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white font-semibold rounded-lg transition-all duration-300 cursor-not-allowed opacity-50"
-                  disabled
+              ) : post.slug ? (
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#FFCC00] hover:bg-[#D50032] text-slate-900 hover:text-white font-semibold rounded-lg transition-all duration-300"
                 >
-                  Coming Soon
-                </button>
-              )}
+                  Read Article
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                  </svg>
+                </Link>
+              ) : null}
             </article>
           ))}
         </div>
@@ -138,12 +182,12 @@ export default function Blog() {
                   Island Escape - Featured Project
                 </h3>
                 <p className="text-gray-300 mb-4">
-                  A comprehensive team project showcasing my tool programming and gameplay engineering skills. 
-                  Features include procedural terrain generation, AI combat systems, modular pickup/inventory 
+                  A comprehensive team project showcasing my tool programming and gameplay engineering skills.
+                  Features include procedural terrain generation, AI combat systems, modular pickup/inventory
                   system, and designer-controlled spawner systems built with delegates.
                 </p>
                 <div className="flex flex-wrap gap-3">
-                  <a 
+                  <a
                     href="https://theendisnear469.itch.io/island-escape"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -154,12 +198,12 @@ export default function Blog() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                   </a>
-                  <a 
+                  <Link
                     href="/projects"
                     className="inline-flex items-center gap-2 px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white font-semibold rounded-lg transition-all duration-300"
                   >
                     View All Projects
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -173,11 +217,11 @@ export default function Blog() {
               Stay Updated
             </h3>
             <p className="text-gray-300 mb-6">
-              Follow my journey as I complete my degree and enter the game development industry. 
+              Follow my journey as a Full Sail University graduate entering the game development industry.
               More blog posts and project updates coming soon!
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <a 
+              <a
                 href="https://www.linkedin.com/in/marcusdaley-gamedev"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -188,7 +232,7 @@ export default function Blog() {
                 </svg>
                 Follow on LinkedIn
               </a>
-              <a 
+              <a
                 href="https://github.com/GrizzwaldHouse"
                 target="_blank"
                 rel="noopener noreferrer"

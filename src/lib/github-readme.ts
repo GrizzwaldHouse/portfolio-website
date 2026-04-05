@@ -21,6 +21,16 @@ export function parseReadme(markdown: string | null): ParsedReadme {
   };
 }
 
+/**
+ * Extracts the first prose paragraph from a markdown string.
+ *
+ * Skips headings (`#`), badge images (`![...`), and admonitions (`[!...`)
+ * at the top of the file, then collects consecutive non-empty, non-heading
+ * lines into a single paragraph string.
+ *
+ * @param md - Raw markdown content.
+ * @returns The first paragraph as a single string, or null if none found.
+ */
 function extractFirstParagraph(md: string): string | null {
   const lines = md.split('\n');
   const paragraphLines: string[] = [];
@@ -47,6 +57,16 @@ function extractFirstParagraph(md: string): string | null {
   return result || null;
 }
 
+/**
+ * Extracts bullet-point items from a named `## Section` in markdown.
+ *
+ * Searches for a level-2 heading matching `sectionName` (case-insensitive),
+ * then collects all `- ` or `* ` list items until the next heading or EOF.
+ *
+ * @param md          - Raw markdown content.
+ * @param sectionName - The heading text to search for (e.g., "Features", "Tech Stack").
+ * @returns Array of trimmed list-item strings, or empty array if the section is missing.
+ */
 function extractSection(md: string, sectionName: string): string[] {
   const regex = new RegExp(`^##\\s+${sectionName}`, 'im');
   const match = md.match(regex);

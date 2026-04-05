@@ -5,6 +5,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import YouTubeEmbed from './YouTubeEmbed';
 
 interface ProjectVideo {
@@ -18,6 +19,7 @@ interface ProjectVideoGalleryProps {
   projectTitle: string;
 }
 
+// Multi-video gallery with thumbnail selector; wraps YouTubeEmbed for project detail pages.
 export default function ProjectVideoGallery({ videos, projectTitle }: ProjectVideoGalleryProps) {
   const [selectedVideo, setSelectedVideo] = useState(0);
 
@@ -65,11 +67,13 @@ export default function ProjectVideoGallery({ videos, projectTitle }: ProjectVid
                     : 'border-slate-600 hover:border-slate-500'
                 }`}
               >
-                <img
+                <Image
                   src={`https://img.youtube.com/vi/${video.videoId}/mqdefault.jpg`}
                   alt={video.title}
                   className="w-full h-full object-cover"
                   loading="lazy"
+                  fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </button>
             ))}

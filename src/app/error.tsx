@@ -25,7 +25,7 @@ export default function Error({
           An unexpected error occurred while loading this page.
         </p>
 
-        {error.message && (
+        {process.env.NODE_ENV === 'development' && error.message && (
           <p className="text-sm text-gray-500 mb-8 font-mono bg-slate-800/50 rounded-lg px-4 py-2 inline-block">
             {error.message}
           </p>

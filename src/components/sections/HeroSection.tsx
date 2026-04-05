@@ -7,12 +7,13 @@ import Link from 'next/link';
 import { siteConfig, freelanceLinks } from '@/data/site-config';
 import FreelanceModal from '@/components/FreelanceModal';
 
+// Above-the-fold hero for the home page; portrait, tagline, skill badges, and hire CTA with freelance modal.
 export default function HeroSection() {
   const [hireOpen, setHireOpen] = useState(false);
 
   return (
     <section
-      className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 py-20 px-6 overflow-hidden"
+      className="relative bg-gradient-to-br from-slate-900 via-slate-900 to-slate-900 py-20 px-6 overflow-hidden"
       aria-label="Introduction"
     >
       {/* Animated gradient overlay */}

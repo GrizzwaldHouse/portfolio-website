@@ -1,8 +1,15 @@
 import type { GitHubRepo, EnrichedGitHub } from './types';
 
 /**
- * Fetches the raw README content for a specific repository.
- * Returns null if the repo has no README or the request fails.
+ * Fetches the raw README content for a GitHub repository.
+ *
+ * Uses the `application/vnd.github.v3.raw` accept header to get plain markdown
+ * instead of base64-encoded content. Results are ISR-cached for 1 hour (3600s).
+ * Authenticates with GITHUB_TOKEN when available (raises rate limit from 60 to 5000 req/hr).
+ *
+ * @param owner - GitHub username or organization (e.g., "GrizzwaldHouse").
+ * @param repo  - Repository name (e.g., "portfolio-website").
+ * @returns Raw README markdown string, or null if not found / request fails.
  */
 export async function fetchRepoReadme(
   owner: string,
@@ -33,9 +40,15 @@ export async function fetchRepoReadme(
 }
 
 /**
- * Fetches all public repos for the given GitHub username.
- * Called at BUILD TIME via Next.js ISR — not at runtime.
- * Revalidates every hour (3600 seconds).
+ * Fetches all public repositories for a GitHub user, sorted by most recently pushed.
+ *
+ * Called at build time by Next.js ISR (not at runtime in the browser).
+ * Revalidates every hour (3600s) so project pages stay reasonably fresh.
+ * Without a GITHUB_TOKEN, the unauthenticated rate limit is 60 requests/hour;
+ * with a token it rises to 5000/hour.
+ *
+ * @param username - GitHub username (e.g., "GrizzwaldHouse").
+ * @returns Array of {@link GitHubRepo} objects, or empty array on failure.
  */
 export async function fetchGitHubRepos(
   username: string,
@@ -72,8 +85,15 @@ export async function fetchGitHubRepos(
 }
 
 /**
- * Enriches curated project data with live GitHub metadata.
- * Called in server components at build time.
+ * Enriches a curated project entry with live GitHub metadata.
+ *
+ * Matches by comparing `project.repoName` (case-insensitive) against the
+ * fetched repo list. Returns default empty values when no match is found,
+ * so callers never need null-checking on the return shape.
+ *
+ * @param project - A project object with an optional `repoName` field.
+ * @param repos   - The full list of repos from {@link fetchGitHubRepos}.
+ * @returns An {@link EnrichedGitHub} object with stars, lastPushed, language, and topics.
  */
 export function enrichProjectWithGitHub(
   project: { repoName?: string },

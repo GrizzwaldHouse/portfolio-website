@@ -1,6 +1,6 @@
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-900 to-slate-900">
       <div className="container mx-auto px-6 py-20">
         {/* Header */}
         <div className="text-center mb-16">
@@ -8,25 +8,25 @@ export default function Contact() {
             Get In Touch
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Let's discuss your next game development project
+            Let&apos;s discuss your next game development project
           </p>
         </div>
 
         {/* Contact Cards Grid */}
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
           {/* Email */}
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-blue-500/30 hover:border-blue-500 transition-all duration-300">
+          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-[#3B82F6]/30 hover:border-[#3B82F6] transition-all duration-300">
             <div className="flex items-start gap-4">
-              <div className="bg-blue-500/20 p-4 rounded-lg">
-                <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-[#3B82F6]/20 p-4 rounded-lg">
+                <svg className="w-8 h-8 text-[#3B82F6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
               <div className="flex-1">
                 <h3 className="text-xl font-bold text-white mb-2">Email</h3>
-                <a 
-                  href="mailto:daleym12@gmail.com" 
-                  className="text-blue-400 hover:text-blue-300 transition text-lg"
+                <a
+                  href="mailto:daleym12@gmail.com"
+                  className="text-[#3B82F6] hover:text-[#60A5FA] transition text-lg"
                 >
                   daleym12@gmail.com
                 </a>
@@ -63,10 +63,10 @@ export default function Contact() {
           </div>
 
           {/* GitHub */}
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-purple-500/30 hover:border-purple-500 transition-all duration-300">
+          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-500/30 hover:border-slate-400 transition-all duration-300">
             <div className="flex items-start gap-4">
-              <div className="bg-purple-500/20 p-4 rounded-lg">
-                <svg className="w-8 h-8 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+              <div className="bg-slate-600/30 p-4 rounded-lg">
+                <svg className="w-8 h-8 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
                   <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
                 </svg>
               </div>
@@ -76,7 +76,7 @@ export default function Contact() {
                   href="https://github.com/GrizzwaldHouse" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-purple-400 hover:text-purple-300 transition text-lg"
+                  className="text-gray-300 hover:text-white transition text-lg"
                 >
                   github.com/GrizzwaldHouse
                 </a>
@@ -123,8 +123,8 @@ export default function Contact() {
             <div className="grid md:grid-cols-2 gap-8">
               {/* Location */}
               <div className="flex items-start gap-4">
-                <div className="bg-blue-500/20 p-3 rounded-lg">
-                  <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="bg-[#3B82F6]/20 p-3 rounded-lg">
+                  <svg className="w-6 h-6 text-[#3B82F6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
@@ -144,7 +144,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-white mb-2">Availability</h3>
-                  <p className="text-[#FFCC00] font-semibold mb-1">Graduating February 2026</p>
+                  <p className="text-[#FFCC00] font-semibold mb-1">Graduated February 2026</p>
                   <p className="text-gray-300">Available for remote work</p>
                 </div>
               </div>
@@ -154,11 +154,11 @@ export default function Contact() {
 
         {/* Seeking Roles */}
         <div className="max-w-4xl mx-auto mt-8">
-          <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm rounded-xl p-8 border border-blue-500/30">
-            <h2 className="text-2xl font-bold text-white mb-4">What I'm Looking For</h2>
+          <div className="bg-gradient-to-r from-[#FFCC00]/10 to-[#D50032]/10 backdrop-blur-sm rounded-xl p-8 border border-[#FFCC00]/30">
+            <h2 className="text-2xl font-bold text-white mb-4">What I&apos;m Looking For</h2>
             <p className="text-gray-300 mb-6">
-              I'm establishing a freelance tool programming career specializing in Unreal Engine development. 
-              I'm seeking <span className="text-[#FFCC00] font-semibold">remote opportunities</span> that allow me to work from home 
+              I&apos;m establishing a freelance tool programming career specializing in Unreal Engine development.
+              I&apos;m seeking <span className="text-[#FFCC00] font-semibold">remote opportunities</span> that allow me to work from home
               while building long-term collaborations with game development teams.
             </p>
 
@@ -166,19 +166,19 @@ export default function Contact() {
               <h3 className="text-lg font-bold text-[#FFCC00] mb-3">Ideal Opportunities:</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="flex items-start gap-3">
-                  <span className="text-blue-400 mt-1">▹</span>
+                  <span className="text-[#FFCC00] mt-1">▹</span>
                   <span className="text-gray-300">Tool Programmer positions</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-blue-400 mt-1">▹</span>
+                  <span className="text-[#FFCC00] mt-1">▹</span>
                   <span className="text-gray-300">Gameplay Engineer roles</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-blue-400 mt-1">▹</span>
+                  <span className="text-[#FFCC00] mt-1">▹</span>
                   <span className="text-gray-300">Technical QA Specialist positions</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-blue-400 mt-1">▹</span>
+                  <span className="text-[#FFCC00] mt-1">▹</span>
                   <span className="text-gray-300">Graphics Programmer opportunities</span>
                 </div>
               </div>

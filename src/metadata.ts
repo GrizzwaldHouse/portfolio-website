@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const siteMetadata: Metadata = {
-  metadataBase: new URL('https://portfolio-website-6y4r1pzds-marcusds-projects.vercel.app'),
+  metadataBase: new URL('https://marcusdaley.dev'),
   title: {
     default: 'Marcus Daley | Tool Programmer & Game Developer',
     template: '%s | Marcus Daley'
@@ -42,7 +42,7 @@ export const siteMetadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://portfolio-website-6y4r1pzds-marcusds-projects.vercel.app',
+    url: 'https://marcusdaley.dev',
     siteName: 'Marcus Daley Portfolio',
     title: 'Marcus Daley | Tool Programmer & Game Developer',
     description: 'Navy veteran specializing in Unreal Engine tool programming, technical QA, and graphics engineering. Full Sail University graduate.',
@@ -66,7 +66,7 @@ export const siteMetadata: Metadata = {
     google: 'your-google-verification-code', // Add after setting up Google Search Console
   },
   alternates: {
-    canonical: 'https://portfolio-website-6y4r1pzds-marcusds-projects.vercel.app',
+    canonical: 'https://marcusdaley.dev',
   },
 };
 
@@ -75,7 +75,7 @@ export const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Marcus Daley',
-  url: 'https://portfolio-website-6y4r1pzds-marcusds-projects.vercel.app',
+  url: 'https://marcusdaley.dev',
   image: '/images/profile.jpg',
   jobTitle: 'Tool Programmer & Game Developer',
   description: 'Navy veteran specializing in Unreal Engine tool programming, technical QA, and graphics engineering.',

@@ -30,6 +30,7 @@ export interface Project {
   status: 'complete' | 'in-progress' | 'archived';
 }
 
+// Master list of all portfolio projects; add new entries here and set `featured: true` to surface on the home page.
 export const projects: Project[] = [
   {
     slug: 'quidditch-ai-flight',
@@ -504,4 +505,5 @@ export const projects: Project[] = [
   },
 ];
 
+// Subset of projects marked as featured; used by FeaturedProjects section on the home page.
 export const featuredProjects = projects.filter((p) => p.featured);

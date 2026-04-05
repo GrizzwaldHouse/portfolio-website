@@ -5,6 +5,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 interface YouTubeEmbedProps {
   videoId: string;
@@ -13,6 +14,7 @@ interface YouTubeEmbedProps {
   className?: string;
 }
 
+// Lazy-loading YouTube player: shows a thumbnail placeholder, loads the iframe only on click.
 export default function YouTubeEmbed({
   videoId,
   title,
@@ -30,11 +32,13 @@ export default function YouTubeEmbed({
         role="button"
         aria-label={`Play video: ${title}`}
       >
-        <img
+        <Image
           src={thumbnailUrl}
           alt={`Video thumbnail: ${title}`}
           className="w-full h-full object-cover"
           loading="lazy"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
           <div className="w-16 h-16 md:w-20 md:h-20 bg-red-600 rounded-full flex items-center justify-center group-hover:bg-red-500 group-hover:scale-110 transition-all shadow-2xl">
@@ -57,6 +61,7 @@ export default function YouTubeEmbed({
         title={title}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
+        sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
         className="absolute inset-0 w-full h-full"
       />
     </div>

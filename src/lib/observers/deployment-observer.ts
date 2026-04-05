@@ -36,6 +36,19 @@ export interface ObserverResult {
   error?: Error;
 }
 
+/**
+ * Singleton event bus for portfolio lifecycle events (builds, deployments, config changes).
+ *
+ * Features:
+ * - Re-entrancy guard: events emitted during an active emit are queued and drained afterward
+ * - Resilient dispatch: uses Promise.allSettled so one failing observer never blocks others
+ * - Automatic retry: transient observer failures get one retry before being marked rejected
+ *
+ * Usage:
+ *   const unsub = deploymentObserver.subscribe((event) => { ... });
+ *   await deploymentObserver.emit(DeploymentObserver.createEvent('BUILD_STARTED'));
+ *   unsub(); // cleanup
+ */
 class DeploymentObserver {
   private observers: Set<Observer> = new Set();
   private emitting = false;
@@ -43,12 +56,14 @@ class DeploymentObserver {
   private maxRetries = 1;
 
   /**
-   * Subscribe an observer to portfolio events.
-   * Returns an unsubscribe function.
+   * Subscribe a callback to all portfolio events.
    *
-   * smolagents principle: tool-agnostic design — any observer can subscribe
-   * regardless of implementation. This parallels smolagents' support for
-   * tools from MCP servers, LangChain, or Hub Spaces.
+   * @param observer - Sync or async handler invoked on every emitted event.
+   *   Receives a {@link PortfolioEvent} with type, timestamp, and optional data.
+   * @returns An unsubscribe function — call it to remove this observer.
+   *
+   * Event types: BUILD_STARTED, BUILD_SUCCEEDED, BUILD_FAILED,
+   * DEPLOYMENT_STATUS, CONFIG_UPDATED, THEME_CHANGED, PROJECT_MODIFIED.
    */
   subscribe(observer: Observer): () => void {
     this.observers.add(observer);
@@ -58,18 +73,18 @@ class DeploymentObserver {
   }
 
   /**
-   * Emit an event to all subscribed observers.
-   * Uses Promise.allSettled so a single failing observer does not
-   * prevent others from receiving the event.
+   * Dispatch an event to every subscribed observer.
    *
-   * Re-entrancy guard: if emit is called while another emit is in
-   * progress, the event is queued and dispatched after the current
-   * emit completes.
+   * Behavior:
+   * 1. If another emit is already running (re-entrancy), the event is
+   *    pushed onto an internal queue and an empty result array is returned.
+   *    Queued events are drained recursively after the active emit finishes.
+   * 2. Each observer is invoked via Promise.allSettled, so one failure
+   *    never prevents other observers from running.
+   * 3. Failed observers are retried once (controlled by `maxRetries`).
    *
-   * smolagents principles applied:
-   * - Detailed error logging: each observer failure is logged with context
-   * - Retry mechanism: transient failures get one automatic retry
-   * - Information flow: results include per-observer status for debugging
+   * @param event - The portfolio event to broadcast.
+   * @returns Per-observer results indicating fulfilled or rejected status.
    */
   async emit(event: PortfolioEvent): Promise<ObserverResult[]> {
     if (this.emitting) {

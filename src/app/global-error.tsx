@@ -72,7 +72,7 @@ export default function GlobalError({
             A critical error prevented the page from loading.
           </p>
 
-          {error.message && (
+          {process.env.NODE_ENV === 'development' && error.message && (
             <p
               style={{
                 color: '#64748b',
