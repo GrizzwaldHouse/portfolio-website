@@ -10,7 +10,7 @@ export default function About() {
           <div className="w-full lg:w-1/3 flex justify-center">
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-[#FFCC00] shadow-2xl">
               <Image
-                src="/images/profile.jpg"
+                src="/images/headshots/image-1-medium.webp"
                 alt="Marcus Daley"
                 fill
                 className="object-cover"

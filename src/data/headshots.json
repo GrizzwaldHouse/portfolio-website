@@ -1,0 +1,180 @@
+[
+  {
+    "id": "img-1424",
+    "originalFile": "IMG_1424.JPG",
+    "type": "graduation",
+    "usage": [
+      "education",
+      "about"
+    ],
+    "rank": 1,
+    "sizes": {
+      "thumbnail": {
+        "size": "thumbnail",
+        "file": "img-1424-thumbnail.webp",
+        "path": "/images/headshots/img-1424-thumbnail.webp",
+        "width": 200,
+        "height": 200,
+        "bytes": 5972
+      },
+      "medium": {
+        "size": "medium",
+        "file": "img-1424-medium.webp",
+        "path": "/images/headshots/img-1424-medium.webp",
+        "width": 600,
+        "height": 750,
+        "bytes": 31076
+      },
+      "large": {
+        "size": "large",
+        "file": "img-1424-large.webp",
+        "path": "/images/headshots/img-1424-large.webp",
+        "width": 1200,
+        "height": 1500,
+        "bytes": 67154
+      }
+    }
+  },
+  {
+    "id": "img-1425",
+    "originalFile": "IMG_1425.JPG",
+    "type": "graduation",
+    "usage": [
+      "education-candid"
+    ],
+    "rank": 2,
+    "sizes": {
+      "thumbnail": {
+        "size": "thumbnail",
+        "file": "img-1425-thumbnail.webp",
+        "path": "/images/headshots/img-1425-thumbnail.webp",
+        "width": 200,
+        "height": 200,
+        "bytes": 10144
+      },
+      "medium": {
+        "size": "medium",
+        "file": "img-1425-medium.webp",
+        "path": "/images/headshots/img-1425-medium.webp",
+        "width": 600,
+        "height": 750,
+        "bytes": 57854
+      },
+      "large": {
+        "size": "large",
+        "file": "img-1425-large.webp",
+        "path": "/images/headshots/img-1425-large.webp",
+        "width": 1200,
+        "height": 1500,
+        "bytes": 122504
+      }
+    }
+  },
+  {
+    "id": "image-1",
+    "originalFile": "Image-1.JPG",
+    "type": "professional",
+    "usage": [
+      "homepage",
+      "about",
+      "metadata"
+    ],
+    "rank": 1,
+    "sizes": {
+      "thumbnail": {
+        "size": "thumbnail",
+        "file": "image-1-thumbnail.webp",
+        "path": "/images/headshots/image-1-thumbnail.webp",
+        "width": 200,
+        "height": 200,
+        "bytes": 3990
+      },
+      "medium": {
+        "size": "medium",
+        "file": "image-1-medium.webp",
+        "path": "/images/headshots/image-1-medium.webp",
+        "width": 600,
+        "height": 750,
+        "bytes": 23394
+      },
+      "large": {
+        "size": "large",
+        "file": "image-1-large.webp",
+        "path": "/images/headshots/image-1-large.webp",
+        "width": 1200,
+        "height": 1500,
+        "bytes": 70814
+      }
+    }
+  },
+  {
+    "id": "image-3",
+    "originalFile": "Image-3.JPG",
+    "type": "professional",
+    "usage": [
+      "about-alternate"
+    ],
+    "rank": 2,
+    "sizes": {
+      "thumbnail": {
+        "size": "thumbnail",
+        "file": "image-3-thumbnail.webp",
+        "path": "/images/headshots/image-3-thumbnail.webp",
+        "width": 200,
+        "height": 200,
+        "bytes": 3888
+      },
+      "medium": {
+        "size": "medium",
+        "file": "image-3-medium.webp",
+        "path": "/images/headshots/image-3-medium.webp",
+        "width": 600,
+        "height": 750,
+        "bytes": 25410
+      },
+      "large": {
+        "size": "large",
+        "file": "image-3-large.webp",
+        "path": "/images/headshots/image-3-large.webp",
+        "width": 1200,
+        "height": 1500,
+        "bytes": 79314
+      }
+    }
+  },
+  {
+    "id": "image-2",
+    "originalFile": "Image-2.JPG",
+    "type": "professional",
+    "usage": [
+      "about-alternate"
+    ],
+    "rank": 3,
+    "sizes": {
+      "thumbnail": {
+        "size": "thumbnail",
+        "file": "image-2-thumbnail.webp",
+        "path": "/images/headshots/image-2-thumbnail.webp",
+        "width": 200,
+        "height": 200,
+        "bytes": 3186
+      },
+      "medium": {
+        "size": "medium",
+        "file": "image-2-medium.webp",
+        "path": "/images/headshots/image-2-medium.webp",
+        "width": 600,
+        "height": 750,
+        "bytes": 19362
+      },
+      "large": {
+        "size": "large",
+        "file": "image-2-large.webp",
+        "path": "/images/headshots/image-2-large.webp",
+        "width": 1200,
+        "height": 1500,
+        "bytes": 58370
+      }
+    }
+  }
+]
