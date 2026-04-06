@@ -51,3 +51,26 @@ nul
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# raw/source images (large, not needed in repo)
+/raw-images/
+
+# personal documents (resumes, PDFs, etc.)
+ARCHITECTURE.pdf
+vmockfeedback.pdf
+Marcus_Daley_*.pdf
+Marcus\ Daley\ *.docx
+Marcus\ Daley\ *.pdf
+
+# temp/session files
+Claude_task.txt
+SESSION_HANDOFF.md
+generate_leidos_configdm_v2.py
+
+# agent workspace
+.agent/
+.claude/
+
+# extracted standalone projects (now in separate repos)
+/service-animal-game/
+/service-dog-portfolio/
