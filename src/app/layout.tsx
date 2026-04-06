@@ -63,7 +63,7 @@ export default function RootLayout({
         </nav>
 
         {/* Main Content */}
-        <main>{children}</main>
+        <main className="relative z-10">{children}</main>
 
         {/* Footer */}
         <footer className="bg-slate-900 border-t border-slate-800 py-8 mt-20">

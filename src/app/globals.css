@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+@theme {
+  --color-background: #0f172a;
+  --color-foreground: #f1f5f9;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+/* Defensive: ensure main content is always above any potential overlays */
+main {
+  position: relative;
+  z-index: 10;
+}
+
+/* Defensive: prevent any pseudo-element overlays on body from obscuring content */
+body::before,
+body::after {
+  z-index: -1 !important;
+  pointer-events: none !important;
+}

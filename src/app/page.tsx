@@ -30,7 +30,7 @@ export default function Home() {
                 Marcus Daley
               </span>
             </h1>
-            <p className="text-2xl md:text-3xl text-gray-300 mb-4">
+            <p className="text-2xl md:text-3xl text-gray-200 mb-4">
               Tool Programmer | Game Development QA | Graphics Engineer
             </p>
             <p className="text-xl text-[#FFCC00] mb-6 font-semibold">
@@ -64,21 +64,21 @@ export default function Home() {
       {/* Stats Section */}
       <section className="container mx-auto px-6 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div className="text-center p-6 bg-slate-800/50 rounded-lg backdrop-blur-sm border border-slate-700">
+          <div className="text-center p-6 bg-slate-800/80 rounded-lg backdrop-blur-sm border border-slate-700">
             <div className="text-4xl font-bold text-[#FFCC00] mb-2">9+</div>
-            <div className="text-gray-400">Years Navy Service</div>
+            <div className="text-gray-300">Years Navy Service</div>
           </div>
-          <div className="text-center p-6 bg-slate-800/50 rounded-lg backdrop-blur-sm border border-slate-700">
+          <div className="text-center p-6 bg-slate-800/80 rounded-lg backdrop-blur-sm border border-slate-700">
             <div className="text-4xl font-bold text-blue-400 mb-2">120</div>
-            <div className="text-gray-400">Credits Earned</div>
+            <div className="text-gray-300">Credits Earned</div>
           </div>
-          <div className="text-center p-6 bg-slate-800/50 rounded-lg backdrop-blur-sm border border-slate-700">
+          <div className="text-center p-6 bg-slate-800/80 rounded-lg backdrop-blur-sm border border-slate-700">
             <div className="text-4xl font-bold text-[#D50032] mb-2">3.8+</div>
-            <div className="text-gray-400">GPA</div>
+            <div className="text-gray-300">GPA</div>
           </div>
-          <div className="text-center p-6 bg-slate-800/50 rounded-lg backdrop-blur-sm border border-slate-700">
+          <div className="text-center p-6 bg-slate-800/80 rounded-lg backdrop-blur-sm border border-slate-700">
             <div className="text-4xl font-bold text-purple-400 mb-2">Feb 2026</div>
-            <div className="text-gray-400">Graduation</div>
+            <div className="text-gray-300">Graduation</div>
           </div>
         </div>
       </section>
@@ -91,9 +91,9 @@ export default function Home() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {/* Tool Programming */}
-          <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-xl border border-blue-500/30 hover:border-blue-500 transition-all duration-300">
+          <div className="bg-slate-800/80 backdrop-blur-sm p-8 rounded-xl border border-blue-500/30 hover:border-blue-500 transition-all duration-300">
             <h3 className="text-2xl font-bold text-blue-400 mb-4">Tool Programming</h3>
-            <p className="text-gray-300 mb-4">
+            <p className="text-gray-200 mb-4">
               Custom editor tools and AI-powered workflows for Unreal Engine 5. Built MCP integration enabling real-time AI assistance in game development.
             </p>
             <div className="flex flex-wrap gap-2">
@@ -104,9 +104,9 @@ export default function Home() {
           </div>
 
           {/* Quality Assurance */}
-          <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-xl border border-[#FFCC00]/30 hover:border-[#FFCC00] transition-all duration-300">
+          <div className="bg-slate-800/80 backdrop-blur-sm p-8 rounded-xl border border-[#FFCC00]/30 hover:border-[#FFCC00] transition-all duration-300">
             <h3 className="text-2xl font-bold text-[#FFCC00] mb-4">Quality Assurance</h3>
-            <p className="text-gray-300 mb-4">
+            <p className="text-gray-200 mb-4">
               Military-grade QA expertise with automated testing frameworks. Specialized in AI systems validation and performance optimization.
             </p>
             <div className="flex flex-wrap gap-2">
@@ -117,9 +117,9 @@ export default function Home() {
           </div>
 
           {/* Graphics Programming */}
-          <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-xl border border-[#D50032]/30 hover:border-[#D50032] transition-all duration-300">
+          <div className="bg-slate-800/80 backdrop-blur-sm p-8 rounded-xl border border-[#D50032]/30 hover:border-[#D50032] transition-all duration-300">
             <h3 className="text-2xl font-bold text-[#D50032] mb-4">Graphics Programming</h3>
-            <p className="text-gray-300 mb-4">
+            <p className="text-gray-200 mb-4">
               Custom 3D rendering engines with Vulkan API. Achieved 35% performance improvements through low-level graphics optimization.
             </p>
             <div className="flex flex-wrap gap-2">

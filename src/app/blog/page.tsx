@@ -45,7 +45,7 @@ export default function Blog() {
           {blogPosts.map((post) => (
             <article 
               key={post.id} 
-              className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700 hover:border-[#FFCC00] transition-all duration-300"
+              className="bg-slate-800/80 backdrop-blur-sm rounded-xl p-8 border border-slate-700 hover:border-[#FFCC00] transition-all duration-300"
             >
               {/* Post Header */}
               <div className="flex items-start justify-between mb-4">
@@ -73,7 +73,7 @@ export default function Blog() {
               <p className="text-sm text-gray-400 mb-4">{post.date}</p>
 
               {/* Excerpt */}
-              <p className="text-gray-300 mb-6 leading-relaxed">
+              <p className="text-gray-200 mb-6 leading-relaxed">
                 {post.excerpt}
               </p>
 
@@ -137,7 +137,7 @@ export default function Blog() {
                 <h3 className="text-2xl font-bold text-white mb-2">
                   Island Escape - Featured Project
                 </h3>
-                <p className="text-gray-300 mb-4">
+                <p className="text-gray-200 mb-4">
                   A comprehensive team project showcasing my tool programming and gameplay engineering skills. 
                   Features include procedural terrain generation, AI combat systems, modular pickup/inventory 
                   system, and designer-controlled spawner systems built with delegates.
@@ -168,11 +168,11 @@ export default function Blog() {
 
         {/* Newsletter/Updates Section */}
         <div className="max-w-2xl mx-auto mt-16 text-center">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700">
+          <div className="bg-slate-800/80 backdrop-blur-sm rounded-xl p-8 border border-slate-700">
             <h3 className="text-2xl font-bold text-white mb-4">
               Stay Updated
             </h3>
-            <p className="text-gray-300 mb-6">
+            <p className="text-gray-200 mb-6">
               Follow my journey as I complete my degree and enter the game development industry. 
               More blog posts and project updates coming soon!
             </p>

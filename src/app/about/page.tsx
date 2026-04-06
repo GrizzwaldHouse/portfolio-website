@@ -24,7 +24,7 @@ export default function About() {
             <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-[#FFCC00] to-[#D50032] bg-clip-text text-transparent">
               About Me
             </h1>
-            <p className="text-xl text-gray-300 mb-4">
+            <p className="text-xl text-gray-200 mb-4">
               From Submarines to Game Development
             </p>
             <div className="inline-block px-4 py-2 bg-[#FFCC00]/20 border border-[#FFCC00] rounded-lg">
@@ -37,10 +37,10 @@ export default function About() {
 
         {/* Journey Section */}
         <section className="mb-16">
-          <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-xl border border-slate-700">
+          <div className="bg-slate-800/80 backdrop-blur-sm p-8 rounded-xl border border-slate-700">
             <h2 className="text-3xl font-bold text-blue-400 mb-6">My Journey</h2>
             
-            <div className="space-y-4 text-gray-300 text-lg leading-relaxed">
+            <div className="space-y-4 text-gray-200 text-lg leading-relaxed">
               <p>
                 I'm Marcus Daley, a Navy veteran transitioning from submarine mechanics and weapons systems to 
                 game development. After 9 years serving my country, I discovered my passion for programming when 
@@ -71,25 +71,25 @@ export default function About() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Tool Programming */}
-            <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-xl border border-blue-500/30 hover:border-blue-500 transition-all duration-300">
+            <div className="bg-slate-800/80 backdrop-blur-sm p-8 rounded-xl border border-blue-500/30 hover:border-blue-500 transition-all duration-300">
               <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4">
                 <span className="text-2xl">🛠️</span>
               </div>
               <h3 className="text-2xl font-bold text-blue-400 mb-4">Tool Programming</h3>
-              <p className="text-gray-300 mb-4">
+              <p className="text-gray-200 mb-4">
                 Specializing in Unreal Engine editor tools and AI-powered workflows. Built custom C++ subsystems 
                 and Python integration for game development automation.
               </p>
               <div className="space-y-2">
-                <div className="flex items-center gap-2 text-sm text-gray-400">
+                <div className="flex items-center gap-2 text-sm text-gray-300">
                   <span className="text-blue-400">▹</span>
                   <span>Custom editor utilities</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-400">
+                <div className="flex items-center gap-2 text-sm text-gray-300">
                   <span className="text-blue-400">▹</span>
                   <span>MCP server integration</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-400">
+                <div className="flex items-center gap-2 text-sm text-gray-300">
                   <span className="text-blue-400">▹</span>
                   <span>Python automation tools</span>
                 </div>
@@ -97,25 +97,25 @@ export default function About() {
             </div>
 
             {/* Quality Assurance */}
-            <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-xl border border-[#FFCC00]/30 hover:border-[#FFCC00] transition-all duration-300">
+            <div className="bg-slate-800/80 backdrop-blur-sm p-8 rounded-xl border border-[#FFCC00]/30 hover:border-[#FFCC00] transition-all duration-300">
               <div className="w-12 h-12 bg-[#FFCC00]/20 rounded-lg flex items-center justify-center mb-4">
                 <span className="text-2xl">✓</span>
               </div>
               <h3 className="text-2xl font-bold text-[#FFCC00] mb-4">Quality Assurance</h3>
-              <p className="text-gray-300 mb-4">
+              <p className="text-gray-200 mb-4">
                 Automated testing frameworks for game engines. Expert in AI systems validation, algorithm testing, 
                 and performance optimization.
               </p>
               <div className="space-y-2">
-                <div className="flex items-center gap-2 text-sm text-gray-400">
+                <div className="flex items-center gap-2 text-sm text-gray-300">
                   <span className="text-[#FFCC00]">▹</span>
                   <span>Automated test frameworks</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-400">
+                <div className="flex items-center gap-2 text-sm text-gray-300">
                   <span className="text-[#FFCC00]">▹</span>
                   <span>AI validation systems</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-400">
+                <div className="flex items-center gap-2 text-sm text-gray-300">
                   <span className="text-[#FFCC00]">▹</span>
                   <span>Performance profiling</span>
                 </div>
@@ -123,25 +123,25 @@ export default function About() {
             </div>
 
             {/* Graphics Engineering */}
-            <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-xl border border-[#D50032]/30 hover:border-[#D50032] transition-all duration-300">
+            <div className="bg-slate-800/80 backdrop-blur-sm p-8 rounded-xl border border-[#D50032]/30 hover:border-[#D50032] transition-all duration-300">
               <div className="w-12 h-12 bg-[#D50032]/20 rounded-lg flex items-center justify-center mb-4">
                 <span className="text-2xl">🎨</span>
               </div>
               <h3 className="text-2xl font-bold text-[#D50032] mb-4">Graphics Engineering</h3>
-              <p className="text-gray-300 mb-4">
+              <p className="text-gray-200 mb-4">
                 Low-level graphics programming with Vulkan API. Custom 3D rendering engines achieving significant 
                 performance improvements through optimization.
               </p>
               <div className="space-y-2">
-                <div className="flex items-center gap-2 text-sm text-gray-400">
+                <div className="flex items-center gap-2 text-sm text-gray-300">
                   <span className="text-[#D50032]">▹</span>
                   <span>Vulkan API development</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-400">
+                <div className="flex items-center gap-2 text-sm text-gray-300">
                   <span className="text-[#D50032]">▹</span>
                   <span>PBR materials system</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-400">
+                <div className="flex items-center gap-2 text-sm text-gray-300">
                   <span className="text-[#D50032]">▹</span>
                   <span>35% performance gains</span>
                 </div>
@@ -152,7 +152,7 @@ export default function About() {
 
         {/* Education */}
         <section className="mb-16">
-          <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-xl border border-[#FFCC00]/30">
+          <div className="bg-slate-800/80 backdrop-blur-sm p-8 rounded-xl border border-[#FFCC00]/30">
             <h2 className="text-3xl font-bold text-[#FFCC00] mb-6">Education</h2>
             
             <div className="space-y-6">
@@ -198,7 +198,7 @@ export default function About() {
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-xl border border-slate-700">
+            <div className="bg-slate-800/80 backdrop-blur-sm p-8 rounded-xl border border-slate-700">
               <h3 className="text-xl font-bold text-blue-400 mb-4">Game Development</h3>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-2 bg-blue-500/20 text-blue-300 rounded-lg">Unreal Engine 5.5</span>
@@ -209,7 +209,7 @@ export default function About() {
               </div>
             </div>
 
-            <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-xl border border-slate-700">
+            <div className="bg-slate-800/80 backdrop-blur-sm p-8 rounded-xl border border-slate-700">
               <h3 className="text-xl font-bold text-[#FFCC00] mb-4">Graphics & Systems</h3>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-2 bg-[#FFCC00]/20 text-[#FFCC00] rounded-lg">Vulkan API</span>
@@ -219,7 +219,7 @@ export default function About() {
               </div>
             </div>
 
-            <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-xl border border-slate-700">
+            <div className="bg-slate-800/80 backdrop-blur-sm p-8 rounded-xl border border-slate-700">
               <h3 className="text-xl font-bold text-[#D50032] mb-4">Tools & Automation</h3>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-2 bg-[#D50032]/20 text-[#D50032] rounded-lg">Python FastMCP</span>
@@ -229,7 +229,7 @@ export default function About() {
               </div>
             </div>
 
-            <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-xl border border-slate-700">
+            <div className="bg-slate-800/80 backdrop-blur-sm p-8 rounded-xl border border-slate-700">
               <h3 className="text-xl font-bold text-purple-400 mb-4">Development Environments</h3>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-2 bg-purple-500/20 text-purple-300 rounded-lg">Visual Studio 2022</span>

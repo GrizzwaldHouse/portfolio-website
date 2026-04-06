@@ -161,7 +161,7 @@ export default function ProjectsPage() {
                           </span>
                         </div>
                         <p className="text-gray-400 text-sm mb-4">{project.subtitle}</p>
-                        <p className="text-gray-300 mb-6">{project.description}</p>
+                        <p className="text-gray-200 mb-6">{project.description}</p>
 
                         <div className="mb-4">
                           <span className="text-sm text-gray-400">Role: </span>
@@ -173,7 +173,7 @@ export default function ProjectsPage() {
                           {project.tech.map(t => (
                             <span
                               key={t}
-                              className="px-3 py-1 bg-slate-700/70 rounded-full text-sm text-gray-300 backdrop-blur-sm"
+                              className="px-3 py-1 bg-slate-700/90 rounded-full text-sm text-gray-300 backdrop-blur-sm"
                             >
                               {t}
                             </span>
@@ -258,7 +258,7 @@ export default function ProjectsPage() {
                 >
                   <h3 className="text-xl font-bold text-blue-400 mb-1">{project.title}</h3>
                   <p className="text-gray-400 text-sm mb-3">{project.subtitle}</p>
-                  <p className="text-gray-300 text-sm mb-4">{project.description}</p>
+                  <p className="text-gray-200 text-sm mb-4">{project.description}</p>
 
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.slice(0, 3).map(t => (
@@ -297,7 +297,7 @@ export default function ProjectsPage() {
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl font-bold mb-4">Interested in Working Together?</h2>
-          <p className="text-gray-400 mb-6">
+          <p className="text-gray-300 mb-6">
             I'm currently seeking remote opportunities in tool programming and technical QA.
           </p>
           <div className="flex justify-center gap-4 flex-wrap">

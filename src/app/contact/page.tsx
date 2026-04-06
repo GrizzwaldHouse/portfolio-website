@@ -15,7 +15,7 @@ export default function Contact() {
         {/* Contact Cards Grid */}
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
           {/* Email */}
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-blue-500/30 hover:border-blue-500 transition-all duration-300">
+          <div className="bg-slate-800/80 backdrop-blur-sm rounded-xl p-8 border border-blue-500/30 hover:border-blue-500 transition-all duration-300">
             <div className="flex items-start gap-4">
               <div className="bg-blue-500/20 p-4 rounded-lg">
                 <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -30,7 +30,7 @@ export default function Contact() {
                 >
                   daleym12@gmail.com
                 </a>
-                <p className="text-sm text-gray-400 mt-3">
+                <p className="text-sm text-gray-300 mt-3">
                   Best for project inquiries and professional opportunities
                 </p>
               </div>
@@ -38,7 +38,7 @@ export default function Contact() {
           </div>
 
           {/* LinkedIn */}
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-[#FFCC00]/30 hover:border-[#FFCC00] transition-all duration-300">
+          <div className="bg-slate-800/80 backdrop-blur-sm rounded-xl p-8 border border-[#FFCC00]/30 hover:border-[#FFCC00] transition-all duration-300">
             <div className="flex items-start gap-4">
               <div className="bg-[#FFCC00]/20 p-4 rounded-lg">
                 <svg className="w-8 h-8 text-[#FFCC00]" fill="currentColor" viewBox="0 0 24 24">
@@ -55,7 +55,7 @@ export default function Contact() {
                 >
                   linkedin.com/in/marcusdaley-gamedev
                 </a>
-                <p className="text-sm text-gray-400 mt-3">
+                <p className="text-sm text-gray-300 mt-3">
                   Connect with me professionally
                 </p>
               </div>
@@ -63,7 +63,7 @@ export default function Contact() {
           </div>
 
           {/* GitHub */}
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-purple-500/30 hover:border-purple-500 transition-all duration-300">
+          <div className="bg-slate-800/80 backdrop-blur-sm rounded-xl p-8 border border-purple-500/30 hover:border-purple-500 transition-all duration-300">
             <div className="flex items-start gap-4">
               <div className="bg-purple-500/20 p-4 rounded-lg">
                 <svg className="w-8 h-8 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
@@ -80,7 +80,7 @@ export default function Contact() {
                 >
                   github.com/GrizzwaldHouse
                 </a>
-                <p className="text-sm text-gray-400 mt-3">
+                <p className="text-sm text-gray-300 mt-3">
                   View my code repositories and projects
                 </p>
               </div>
@@ -88,7 +88,7 @@ export default function Contact() {
           </div>
 
           {/* YouTube */}
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-[#D50032]/30 hover:border-[#D50032] transition-all duration-300">
+          <div className="bg-slate-800/80 backdrop-blur-sm rounded-xl p-8 border border-[#D50032]/30 hover:border-[#D50032] transition-all duration-300">
             <div className="flex items-start gap-4">
               <div className="bg-[#D50032]/20 p-4 rounded-lg">
                 <svg className="w-8 h-8 text-[#D50032]" fill="currentColor" viewBox="0 0 24 24">
@@ -105,7 +105,7 @@ export default function Contact() {
                 >
                   @marcusdaley7301
                 </a>
-                <p className="text-sm text-gray-400 mt-3">
+                <p className="text-sm text-gray-300 mt-3">
                   Project demos and development videos
                 </p>
               </div>
@@ -115,7 +115,7 @@ export default function Contact() {
 
         {/* Location & Availability */}
         <div className="max-w-4xl mx-auto">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700">
+          <div className="bg-slate-800/80 backdrop-blur-sm rounded-xl p-8 border border-slate-700">
             <h2 className="text-3xl font-bold text-white mb-8 text-center">
               Location & Availability
             </h2>
@@ -156,7 +156,7 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto mt-8">
           <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm rounded-xl p-8 border border-blue-500/30">
             <h2 className="text-2xl font-bold text-white mb-4">What I'm Looking For</h2>
-            <p className="text-gray-300 mb-6">
+            <p className="text-gray-200 mb-6">
               I'm establishing a freelance tool programming career specializing in Unreal Engine development. 
               I'm seeking <span className="text-[#FFCC00] font-semibold">remote opportunities</span> that allow me to work from home 
               while building long-term collaborations with game development teams.
