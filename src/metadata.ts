@@ -48,7 +48,7 @@ export const siteMetadata: Metadata = {
     description: 'Navy veteran specializing in Unreal Engine tool programming, technical QA, and graphics engineering. Full Sail University graduate.',
     images: [
       {
-        url: '/images/profile.jpg',
+        url: '/images/headshots/image-1-large.webp',
         width: 1200,
         height: 630,
         alt: 'Marcus Daley - Tool Programmer',
@@ -59,7 +59,7 @@ export const siteMetadata: Metadata = {
     card: 'summary_large_image',
     title: 'Marcus Daley | Tool Programmer & Game Developer',
     description: 'Navy veteran specializing in Unreal Engine tool programming, technical QA, and graphics engineering.',
-    images: ['/images/profile.jpg'],
+    images: ['/images/headshots/image-1-large.webp'],
     creator: '@marcusdaley7301',
   },
   verification: {
@@ -76,7 +76,7 @@ export const jsonLd = {
   '@type': 'Person',
   name: 'Marcus Daley',
   url: 'https://marcusdaley.dev',
-  image: '/images/profile.jpg',
+  image: '/images/headshots/image-1-large.webp',
   jobTitle: 'Tool Programmer & Game Developer',
   description: 'Navy veteran specializing in Unreal Engine tool programming, technical QA, and graphics engineering.',
   alumniOf: {

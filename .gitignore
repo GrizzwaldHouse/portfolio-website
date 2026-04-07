@@ -74,3 +74,7 @@ generate_leidos_configdm_v2.py
 # extracted standalone projects (now in separate repos)
 /service-animal-game/
 /service-dog-portfolio/
+
+# image pipeline temp
+/.pipeline/
+IMAGE_PIPELINE_REPORT.md

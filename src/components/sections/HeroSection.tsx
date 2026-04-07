@@ -92,7 +92,7 @@ export default function HeroSection() {
           >
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[var(--color-primary)]/20 to-[var(--color-secondary)]/20 blur-3xl" />
             <Image
-              src="/images/profile.jpg"
+              src="/images/headshots/image-1-large.webp"
               alt="Marcus Daley — Game Developer and U.S. Navy Veteran"
               fill
               className="object-contain drop-shadow-2xl rounded-2xl relative z-10"
