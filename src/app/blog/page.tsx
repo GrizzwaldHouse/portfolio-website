@@ -56,6 +56,15 @@ export default function Blog() {
       tags: ["Next.js 15", "TypeScript", "Observer Pattern", "Architecture"],
       type: "internal",
     },
+    {
+      id: 5,
+      title: "The AI/ML Landscape: Q2 2026 Trends From Hugging Face",
+      date: "April 2026",
+      excerpt: "A survey of the models trending on Hugging Face in April 2026 — multimodal dominance, Mixture of Experts, reasoning distillation, edge inference, video generation, and GUI agents.",
+      slug: "ai-landscape-q2-2026",
+      tags: ["AI/ML", "Hugging Face", "LLMs", "MoE"],
+      type: "internal",
+    },
   ];
 
   return (
